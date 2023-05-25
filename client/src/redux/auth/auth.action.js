@@ -66,7 +66,7 @@ export const loginProcess = (data) => async (dispatch) => {
       Cookies.set("name", res.data.user.name);
       Cookies.set("email", res.data.user.email);
       Cookies.set("role", res.data.user.role);
-      return true;
+      return res.data.user.role;
     } else {
       dispatch(authLoginFail());
       return false;
@@ -79,21 +79,17 @@ export const loginProcess = (data) => async (dispatch) => {
 
 // async logout function
 export const logoutProcess = (data) => async (dispatch) => {
-    console.log(data);
   dispatch(authLoginLoad());
   let headers = { Authorization: `Bearer ${data.token}` };
   try {
-    let res = await axios.get(`${baseUrl}/logout`, {headers});
-    // if (res.data.status) {
-    //   dispatch(authLogout());
-    //   return true;
-    // } else {
-    //   dispatch(authLoginFail());
-    //   return false;
-    // }
-    console.log(res);
-    dispatch(authLogout());
-    return true
+    let res = await axios.get(`${baseUrl}/logout`, { headers });
+    if (res.status === 200) {
+      dispatch(authLogout());
+      return true;
+    } else {
+      dispatch(authLoginFail());
+      return false;
+    }
   } catch (error) {
     dispatch(authLoginFail());
     return false;

@@ -35,7 +35,7 @@ export default function LoginForm() {
   let handleSubmit = (e) => {
     e.preventDefault();
     let reg =
-    /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,4})$/;
+      /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-z]{2,4})$/;
     if (!reg.test(log.email)) {
       alert("provide correct email");
       return;
@@ -51,7 +51,11 @@ export default function LoginForm() {
             duration: 5000,
             isClosable: true,
           });
-          navigate("/");
+          if (res === "customer") {
+            navigate("/");
+          } else if (res === "banker") {
+            navigate("/banker");
+          }
         } else {
           toast({
             title: "Login unsuccessful.",

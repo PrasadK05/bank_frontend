@@ -16,7 +16,8 @@ export default function PrivateRoutes({ children }) {
 
   if (token) {
     dispatch(authLoginSucc({ token, user }));
-    return children;
+    return children
   }
+  
   return <Navigate to={"/login"} />;
 }
