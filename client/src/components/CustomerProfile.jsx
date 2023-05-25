@@ -22,7 +22,7 @@ export default function CustomerProfile() {
         w={{ base: "100%", sm: "100%", md: "90%", lg: "70%" }}
         m="auto"
         mt="30px"
-        px="15px"
+        px="30px"
         py={"15px"}
         boxShadow={
           "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"

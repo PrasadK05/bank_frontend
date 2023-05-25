@@ -32,8 +32,9 @@ export const getCustomerTR = (data) => async (dispatch) => {
 
   try {
     let res = await axios.get(`${baseUrl}/user/transactions`, { headers });
+   
     if (res.status === 200) {
-      dispatch(customerTRSucc(res.data.account));
+      dispatch(customerTRSucc(res.data.transactions));
       return true;
     } else {
       dispatch(customerTRError());

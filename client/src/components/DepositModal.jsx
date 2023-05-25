@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { depositAmt } from "../redux/customer/customer.action";
+import { depositAmt, getCustomerTR } from "../redux/customer/customer.action";
 import { getAcc } from "../redux/account/account.action";
 
 export default function DepositModal() {
@@ -38,7 +38,8 @@ export default function DepositModal() {
     if (!regEx.test(depoitAmt)) {
       setDepLoad(false);
       setDepositAmt(0);
-      alert("Invalid Amoount");
+      alert("Invalid Ammount");
+      return
     }
 
     depositAmt(data.token, depoitAmt)
@@ -47,6 +48,7 @@ export default function DepositModal() {
         setDepositAmt(0);
         alert(res);
         dispatch(getAcc({ token: data.token }));
+        dispatch(getCustomerTR({ token: data.token }));
         return;
       })
       .catch((error) => {
