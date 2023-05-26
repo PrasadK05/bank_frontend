@@ -161,14 +161,14 @@ export default function SignupForm() {
           <FormControl>
             <FormLabel>Mobile Number</FormLabel>
             <InputGroup>
-            <InputLeftAddon children='+91' />
-            <Input
-              type="tel"
-              name="mobileNumber"
-              placeholder="Mobile Number"
-              value={mobileNumber}
-              onChange={handleChange}
-            />
+              <InputLeftAddon children="+91" />
+              <Input
+                type="tel"
+                name="mobileNumber"
+                placeholder="Mobile Number"
+                value={mobileNumber}
+                onChange={handleChange}
+              />
             </InputGroup>
           </FormControl>
           <FormControl>

@@ -48,13 +48,13 @@ export const getCustomerList = (data) => async (dispatch) => {
 export const getSingleCustomersTr = async (token, id) => {
   let headers = { Authorization: `Bearer ${token}` };
   try {
-    let res = await axios.get(`${baseUrl}/anker/customerTransactions/${id}`, {
+    let res = await axios.get(`${baseUrl}/banker/customerTransactions/${id}`, {
       headers,
     });
     if (res.status === 200) {
-      return res.data;
+      return res.data.transactions;
     } else {
-      return res.data.message;
+      return false;
     }
   } catch (error) {
     return error;

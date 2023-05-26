@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import CustomerProfile from "../components/CustomerProfile";
-import CustomerAcions from "../components/CustomerAcions";
+import { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCustomerTR } from "../redux/customer/customer.action";
+import CustomerProfile from "../components/CustomerProfile";
+import CustomerAcions from "../components/CustomerAcions";
 import TransactionTable from "../components/TransactionTable";
 
 export default function Customer() {
@@ -20,7 +20,11 @@ export default function Customer() {
     <>
       <CustomerProfile />
       <CustomerAcions />
-      <Box w={{ base: "100%", sm: "100%", md: "90%", lg: "70%" }} m="auto" mt="30px">
+      <Box
+        w={{ base: "100%", sm: "100%", md: "90%", lg: "70%" }}
+        m="auto"
+        mt="30px"
+      >
         <TransactionTable error={error} loading={loading} data={customerTr} />
       </Box>
     </>

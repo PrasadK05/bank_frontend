@@ -66,7 +66,9 @@ export default function WithdrawModal() {
   };
   return (
     <>
-      <Button onClick={onOpen}>Withdraw</Button>
+      <Button onClick={onOpen} color="#FFFFFF" bg="#ed64a6">
+        Withdraw
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -99,7 +101,8 @@ export default function WithdrawModal() {
 
           <ModalFooter>
             <Button
-              colorScheme="blue"
+              color="#FFFFFF"
+              bg="#ed64a6"
               mr={3}
               onClick={handleWithdraw}
               disabled={withLoad}

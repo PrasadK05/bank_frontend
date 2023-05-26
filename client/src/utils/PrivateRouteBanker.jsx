@@ -1,11 +1,9 @@
-import React from "react";
 import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { authLoginSucc } from "../redux/auth/auth.action";
 
-// Route protection
-export default function PrivateRoutes({ children }) {
+export default function PrivateRouteBanker({ children }) {
   let token = Cookies.get("token");
   let _id = Cookies.get("_id");
   let name = Cookies.get("name");
@@ -14,10 +12,12 @@ export default function PrivateRoutes({ children }) {
   const dispatch = useDispatch();
   let user = { _id, name, email, role };
 
-  if (token) {
+  if (token && role === "banker") {
     dispatch(authLoginSucc({ token, user }));
-    return children
+    return children;
+  } else if (token && role === "customer") {
+    return <Navigate to={"/"} />;
+  } else {
+    return <Navigate to={"/login"} />;
   }
-  
-  return <Navigate to={"/login"} />;
 }

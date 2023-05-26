@@ -10,7 +10,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
+
 
 export default function TransactionTable({ data, loading, error }) {
   return (

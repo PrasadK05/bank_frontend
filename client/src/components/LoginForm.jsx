@@ -124,8 +124,8 @@ export default function LoginForm() {
       </form>
       <Text mt="10px">
         Don't have an account?{" "}
-        <Link to="/register">
-          <Text color="#4299e1">Register</Text>
+        <Link to="/signup">
+          <Text color="#4299e1">Signup</Text>
         </Link>
       </Text>
     </Box>

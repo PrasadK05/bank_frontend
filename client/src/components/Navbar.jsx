@@ -70,9 +70,7 @@ export default function Navbar() {
   };
   // handle routing on the basis of authentication
   let handleProfile = () => {
-    if (data.isAuthenticated) {
-      navigate("/profile");
-    } else {
+    if (data.isAuthenticated === false) {
       navigate("/signup");
     }
   };

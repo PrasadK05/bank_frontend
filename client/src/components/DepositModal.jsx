@@ -60,7 +60,7 @@ export default function DepositModal() {
   };
   return (
     <>
-      <Button onClick={onOpen}>Deposit</Button>
+      <Button onClick={onOpen} color="#FFFFFF" bg="#4299e1">Deposit</Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

@@ -53,8 +53,7 @@ export const depositAmt = async (token, ammount) => {
       `${baseUrl}/user/deposit`,
       { ammount, type: "deposit" },
       { headers }
-    );
-    console.log(res.data);
+    );    
     if (res.status === 200) {
       return res.data.message;
     } else {
