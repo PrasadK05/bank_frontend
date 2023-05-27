@@ -66,7 +66,12 @@ export default function WithdrawModal() {
   };
   return (
     <>
-      <Button onClick={onOpen} color="#FFFFFF" bg="#ed64a6">
+      <Button
+        onClick={onOpen}
+        color="#FFFFFF"
+        bg="#ed64a6"
+        _hover={{ transform: "scale(1.1)" }}
+      >
         Withdraw
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -106,10 +111,13 @@ export default function WithdrawModal() {
               mr={3}
               onClick={handleWithdraw}
               disabled={withLoad}
+              _hover={{ transform: "scale(1.1)" }}
             >
               {withLoad ? <Spinner size="sm" /> : "withdraw"}
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button onClick={onClose} _hover={{ transform: "scale(1.1)" }}>
+              Cancel
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

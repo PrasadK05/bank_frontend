@@ -11,11 +11,10 @@ import {
   Tr,
 } from "@chakra-ui/react";
 
-
 export default function TransactionTable({ data, loading, error }) {
   return (
     <>
-      <TableContainer display={loading ? "none" : "block"}>
+      <TableContainer display={loading ? "none" : "block"} mt="20px">
         <Table size="sm">
           <Thead>
             <Tr>
@@ -47,18 +46,18 @@ export default function TransactionTable({ data, loading, error }) {
         </Table>
       </TableContainer>
       <Box
-          display={loading ? "flex" : "none"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="blue.500"
-            size="xl"
-          />
-        </Box>
+        display={loading ? "flex" : "none"}
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Box>
       <Box
         display={error ? "flex" : "none"}
         justifyContent={"center"}

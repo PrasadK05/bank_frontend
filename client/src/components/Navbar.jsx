@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Button,
   Drawer,
@@ -31,49 +32,40 @@ export default function Navbar() {
 
   // handle routing on the basis of authentication
   let handleLog = () => {
-    if (data.isAuthenticated) {
-      dispatch(logoutProcess({ token: data.token }))
-        .then((res) => {
-          if (res) {
-            toast({
-              title: "Logout successfully.",
-              status: "success",
-              duration: 5000,
-              isClosable: true,
-            });
-            Cookies.remove("token");
-            Cookies.remove("name");
-            Cookies.remove("_id");
-            Cookies.remove("role");
-            Cookies.remove("email");
-            navigate("/login");
-          } else {
-            toast({
-              title: "Something went wrong, try later.",
-              status: "error",
-              duration: 5000,
-              isClosable: true,
-            });
-          }
-        })
-        .catch((err) => {
+    dispatch(logoutProcess({ token: data.token }))
+      .then((res) => {
+        if (res) {
+          toast({
+            title: "Logout successfully.",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          });
+          Cookies.remove("token");
+          Cookies.remove("name");
+          Cookies.remove("_id");
+          Cookies.remove("role");
+          Cookies.remove("email");
+          navigate("/");
+        } else {
           toast({
             title: "Something went wrong, try later.",
             status: "error",
             duration: 5000,
             isClosable: true,
           });
+        }
+      })
+      .catch((err) => {
+        toast({
+          title: "Something went wrong, try later.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
         });
-    } else {
-      navigate("/login");
-    }
+      });
   };
-  // handle routing on the basis of authentication
-  let handleProfile = () => {
-    if (data.isAuthenticated === false) {
-      navigate("/signup");
-    }
-  };
+
   return (
     <Box
       w={"100%"}
@@ -91,7 +83,7 @@ export default function Navbar() {
         display={{ base: "none", sm: "none", md: "none", lg: "flex" }}
       >
         <Link to="/">
-          <Text fontSize={"20px"} fontWeight={"bold"}>
+          <Text fontSize={"2xl"} fontWeight={"bold"} _hover={{transform:"scale(1.1)"}}>
             Apna Bank
           </Text>
         </Link>
@@ -100,12 +92,23 @@ export default function Navbar() {
         gap="20px"
         display={{ base: "none", sm: "none", md: "none", lg: "flex" }}
       >
-        <Button color="#FFFFFF" bg="#4299e1" onClick={handleLog}>
-          {data.isAuthenticated ? "Logout" : "Login"}
+        <Button
+          color="#FFFFFF"
+          bg="#4299e1"
+          display={data.isAuthenticated ? "block" : "none"}
+          onClick={handleLog}
+          _hover={{transform:"scale(1.1)"}}
+        >
+          Logout
         </Button>
-        <Button color="#FFFFFF" bg="#ed64a6" onClick={handleProfile}>
-          {data.isAuthenticated ? data.name : "Signup"}
-        </Button>
+        <Link to={`/${data.role}`}>
+          {" "}
+          <Avatar
+            display={data.isAuthenticated ? "block" : "none"}
+            name={data.name}
+            _hover={{transform:"scale(1.1)"}}
+          />
+        </Link>
       </HStack>
 
       {/* For Mobile And Tablet */}
@@ -138,11 +141,17 @@ export default function Navbar() {
 
           <DrawerBody>
             <VStack>
-              <Button color="#FFFFFF" bg="#4299e1" onClick={handleLog}>
-                {data.isAuthenticated ? "Logout" : "Login"}
-              </Button>
-              <Button color="#FFFFFF" bg="#ed64a6" onClick={handleProfile}>
-                {data.isAuthenticated ? data.name : "Signup"}
+              <Avatar
+                display={data.isAuthenticated ? "block" : "none"}
+                name={data.name}
+              />
+              <Button
+                color="#FFFFFF"
+                bg="#4299e1"
+                display={data.isAuthenticated ? "block" : "none"}
+                onClick={handleLog}
+              >
+                Logout
               </Button>
             </VStack>
           </DrawerBody>

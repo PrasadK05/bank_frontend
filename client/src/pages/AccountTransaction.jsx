@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getSingleCustomersTr } from "../redux/banker/banker.action";
 import { useSelector } from "react-redux";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import TransactionTable from "../components/TransactionTable";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function AccountTransaction() {
   let [trans, setTrans] = useState([]);
@@ -40,6 +40,11 @@ export default function AccountTransaction() {
           Transaction
         </Text>
         <TransactionTable data={trans} loading={loading} error={error} />
+        <Link to={"/banker"}>
+          <Button mt="20px" color="#FFFFFF" bg="#4299e1" _hover={{transform:"scale(1.1)"}}>
+            Go Back
+          </Button>
+        </Link>
       </Box>
     </>
   );

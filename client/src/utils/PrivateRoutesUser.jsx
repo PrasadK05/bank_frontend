@@ -19,6 +19,6 @@ export default function PrivateRoutesUser({ children }) {
   } else if (token && role === "banker") {
     return <Navigate to={"/banker"} />;
   } else {
-    return <Navigate to={"/login"} />;
+    return <Navigate to={"/"} />;
   }
 }

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box,  Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCustomerList } from "../redux/banker/banker.action";
 import CustomerTable from "../components/CustomerTable";
+
 
 export default function Banker() {
   const { data } = useSelector((store) => store.auth);
@@ -21,7 +22,7 @@ export default function Banker() {
         <Text fontSize={"2xl"} fontWeight={"bold"} ml="10px">
           Accounts
         </Text>
-        <CustomerTable data={customerList} loading={loading} error={error} />
+        <CustomerTable data={customerList} loading={loading} error={error} />        
       </Box>
     </>
   );

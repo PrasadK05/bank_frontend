@@ -33,7 +33,7 @@ export default function CustomerProfile() {
             Account Details
           </Text>
           <Text>Account holder: {account.name}</Text>
-          <Text>Account ID: {account._id}</Text>
+          <Text>Account Number: {account._id}</Text>
           <Text>Email: {account.email}</Text>
           <Text>Mobile Number: {account.mobileNumber}</Text>
         </Box>

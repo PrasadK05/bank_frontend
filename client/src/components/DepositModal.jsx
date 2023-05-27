@@ -39,7 +39,7 @@ export default function DepositModal() {
       setDepLoad(false);
       setDepositAmt(0);
       alert("Invalid Ammount");
-      return
+      return;
     }
 
     depositAmt(data.token, depoitAmt)
@@ -60,7 +60,14 @@ export default function DepositModal() {
   };
   return (
     <>
-      <Button onClick={onOpen} color="#FFFFFF" bg="#4299e1">Deposit</Button>
+      <Button
+        onClick={onOpen}
+        color="#FFFFFF"
+        bg="#4299e1"
+        _hover={{ transform: "scale(1.1)" }}
+      >
+        Deposit
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -97,10 +104,13 @@ export default function DepositModal() {
               mr={3}
               onClick={handleDeposit}
               disabled={depLoad}
+              _hover={{ transform: "scale(1.1)" }}
             >
               {depLoad ? <Spinner size="sm" /> : "Deposit"}
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button onClick={onClose} _hover={{ transform: "scale(1.1)" }}>
+              Cancel
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

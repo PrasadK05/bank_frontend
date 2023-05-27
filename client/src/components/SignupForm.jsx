@@ -21,7 +21,7 @@ let init = {
 };
 
 // Signup Form
-export default function SignupForm() {
+export default function SignupForm({role}) {
   const [data, setData] = useState(init);
   const [cp, setCP] = useState("");
   const navigate = useNavigate();
@@ -87,7 +87,7 @@ export default function SignupForm() {
       return;
     }
     //signup function
-    signupProcess(data)
+    signupProcess({...data, role})
       .then((res) => {
         if (res) {
           toast({
@@ -96,7 +96,7 @@ export default function SignupForm() {
             duration: 5000,
             isClosable: true,
           });
-          navigate("/login");
+          navigate(`/login/${role}`);
         } else {
           toast({
             title: "Account creation unsuccessful.",
@@ -134,7 +134,7 @@ export default function SignupForm() {
       p="20px"
     >
       <Text fontSize={"3xl"} fontWeight={"bold"} align={"center"}>
-        Registration Form
+        {role} signup
       </Text>
       <form onSubmit={handleSubmit}>
         <VStack gap="15px">
@@ -202,7 +202,7 @@ export default function SignupForm() {
       </form>
       <Text mt="10px">
         Already have an account?{" "}
-        <Link to="/login">
+        <Link to={`/login/${role}`}>
           <Text color="#4299e1">Login</Text>
         </Link>
       </Text>

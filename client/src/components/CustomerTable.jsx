@@ -34,7 +34,7 @@ export default function CustomerTable({ data, loading, error }) {
             {data &&
               data.map((el, i) => {
                 return (
-                  <Tr key={el._id} onClick={() => ridirection(el._id)} cursor={"pointer"}>
+                  <Tr key={el._id} onClick={() => ridirection(el._id)} cursor={"pointer"} _hover={{color:"#4299e1"}}>
                     <Td>{i + 1}</Td>
                     <Td>{el.name}</Td>
                     <Td>{el._id}</Td>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCustomerTR } from "../redux/customer/customer.action";
 import CustomerProfile from "../components/CustomerProfile";
@@ -25,6 +25,9 @@ export default function Customer() {
         m="auto"
         mt="30px"
       >
+        <Text fontSize={"2xl"} fontWeight={"bold"} ml="20px">
+          Transactions
+        </Text>
         <TransactionTable error={error} loading={loading} data={customerTr} />
       </Box>
     </>

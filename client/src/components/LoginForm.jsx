@@ -18,7 +18,7 @@ let init = {
 };
 
 // Login Function
-export default function LoginForm() {
+export default function LoginForm({ role }) {
   const { loading } = useSelector((store) => store.auth);
   const [log, setLog] = useState(init);
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ export default function LoginForm() {
             isClosable: true,
           });
           if (res === "customer") {
-            navigate("/");
+            navigate("/customer");
           } else if (res === "banker") {
             navigate("/banker");
           }
@@ -88,7 +88,7 @@ export default function LoginForm() {
       p="20px"
     >
       <Text fontSize={"3xl"} fontWeight={"bold"} align={"center"}>
-        Login Form
+        {role} login
       </Text>
       <form onSubmit={handleSubmit}>
         <VStack gap="15px">
@@ -124,7 +124,7 @@ export default function LoginForm() {
       </form>
       <Text mt="10px">
         Don't have an account?{" "}
-        <Link to="/signup">
+        <Link to={`/signup/${role}`}>
           <Text color="#4299e1">Signup</Text>
         </Link>
       </Text>

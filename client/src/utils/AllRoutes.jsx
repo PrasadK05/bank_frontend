@@ -6,13 +6,14 @@ import PrivateRoutesUser from "./PrivateRoutesUser";
 import Banker from "../pages/Banker";
 import PrivateRouteBanker from "./PrivateRouteBanker";
 import AccountTransaction from "../pages/AccountTransaction";
+import Home from "../pages/Home";
 
 // Managing all available routes
 export default function AllRoutes() {
   return (
     <Routes>
       <Route
-        path="/"
+        path="/customer"
         element={
           <PrivateRoutesUser>
             <Customer />
@@ -35,8 +36,9 @@ export default function AllRoutes() {
           </PrivateRouteBanker>
         }
       ></Route>
-      <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/login" element={<Login />}></Route>
+      <Route path="/signup/:role" element={<Signup />}></Route>
+      <Route path="/login/:role" element={<Login />}></Route>
+      <Route path="/" element={<Home />}></Route>
     </Routes>
   );
 }

@@ -16,8 +16,8 @@ export default function PrivateRouteBanker({ children }) {
     dispatch(authLoginSucc({ token, user }));
     return children;
   } else if (token && role === "customer") {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/customer"} />;
   } else {
-    return <Navigate to={"/login"} />;
+    return <Navigate to={"/"} />;
   }
 }
