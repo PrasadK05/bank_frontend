@@ -21,13 +21,25 @@ Click below to check live application
 
 ## Features
 
-- Signup Page
+- Home Page
 
-![Signup](https://www.linkpicture.com/q/signup_7.png)
+![Home](https://www.linkpicture.com/q/home_55.png)
 
-- Login Page
+- Customer Signup Page
 
-![Login](https://www.linkpicture.com/q/login_32.png)
+![customerSignup](https://www.linkpicture.com/q/customerSignup.png)
+
+- Customer Login Page
+
+![CustomerLogin](https://www.linkpicture.com/q/customerLogin.png)
+
+- Banker Signup Page
+
+![BankerSignup](https://www.linkpicture.com/q/bankerSignup.png)
+
+- Banker Login Page
+
+![BankerLogin](https://www.linkpicture.com/q/bankerLogin.png)
 
 - User Page
 
